@@ -7,7 +7,7 @@ import com.local.prices.application.model.PricesModel;
 import com.local.prices.application.usecase.impl.PricesServiceImpl;
 import com.local.prices.domain.BrandEntity;
 import com.local.prices.domain.PricesEntity;
-import com.local.prices.infrastructure.prices.jpa.PricesJpaRepository;
+import com.local.prices.infrastructure.db.jpa.PricesJpaRepository;
 import com.local.prices.router.dto.RateRequest;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,7 +53,7 @@ class PricesServiceTest {
     @BeforeEach
     void setUp() {
         rateRequest = new RateRequest();
-        rateRequest.setProductId(35455L);
+        rateRequest.setProductId(pricesEntity.getProductId());
         rateRequest.setBrandId(1L);
         rateRequest.setApplicationDate(LocalDateTime.parse("2020-06-14T10:00:00"));
 
@@ -69,7 +69,7 @@ class PricesServiceTest {
 
         pricesModel = new PricesModel();
         pricesModel.setId(1L);
-        pricesModel.setProductId(35455L);
+        pricesModel.setProductId(pricesEntity.getProductId());
         pricesModel.setStartDate("2020-06-14T10:00:00");
         pricesModel.setEndDate("2020-06-14T18:30:00");
         pricesModel.setPrice(BigDecimal.valueOf(35.50));
@@ -108,7 +108,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findByProductIdAndBrand_Id(
-                        35455L, brandEntity.getId()))
+                        pricesEntity.getProductId(), brandEntity.getId()))
                 .thenReturn(optionalPricesEntityList);
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -129,7 +129,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findByProductIdAndBrand_Id(
-                        35455L, brandEntity.getId()))
+                        pricesEntity.getProductId(), brandEntity.getId()))
                 .thenReturn(optionalPricesEntityList);
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -150,7 +150,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findByProductIdAndBrand_Id(
-                        35455L, brandEntity.getId()))
+                        pricesEntity.getProductId(), brandEntity.getId()))
                 .thenReturn(optionalPricesEntityList);
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -171,7 +171,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findByProductIdAndBrand_Id(
-                        35455L, brandEntity.getId()))
+                        pricesEntity.getProductId(), brandEntity.getId()))
                 .thenReturn(optionalPricesEntityList);
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -192,7 +192,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findByProductIdAndBrand_Id(
-                        35455L, brandEntity.getId()))
+                        pricesEntity.getProductId(), brandEntity.getId()))
                 .thenReturn(optionalPricesEntityList);
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -205,7 +205,7 @@ class PricesServiceTest {
     void shouldNotReturnPriceWhenDateIsAfterEndDate() {
         rateRequest.setApplicationDate(LocalDateTime.parse("2020-06-14T16:00:00"));
 
-        when(pricesJpaRepository.findByProductIdAndBrand_Id(35455L, brandEntity.getId()))
+        when(pricesJpaRepository.findByProductIdAndBrand_Id(pricesEntity.getProductId(), brandEntity.getId()))
                 .thenReturn(Optional.of(List.of(pricesEntityOutRange)));
 
         assertThrows(EntityNotFoundException.class, () -> pricesService.apply(rateRequest));
@@ -265,7 +265,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findTopByProductIdAndBrand_IdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
-                        35455L, brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
+                        pricesEntity.getProductId(), brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
                 .thenReturn(Optional.of(pricesEntity));
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -284,7 +284,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findTopByProductIdAndBrand_IdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
-                        35455L, brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
+                        pricesEntity.getProductId(), brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
                 .thenReturn(Optional.of(pricesEntity));
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -303,7 +303,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findTopByProductIdAndBrand_IdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
-                        35455L, brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
+                        pricesEntity.getProductId(), brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
                 .thenReturn(Optional.of(pricesEntity));
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -322,7 +322,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findTopByProductIdAndBrand_IdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
-                        35455L, brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
+                        pricesEntity.getProductId(), brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
                 .thenReturn(Optional.of(pricesEntity));
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 
@@ -341,7 +341,7 @@ class PricesServiceTest {
 
         when(pricesJpaRepository
                 .findTopByProductIdAndBrand_IdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
-                        35455L, brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
+                        pricesEntity.getProductId(), brandEntity.getId(), rateRequest.getApplicationDate(), rateRequest.getApplicationDate()))
                 .thenReturn(Optional.of(pricesEntity));
         when(pricesMapper.toPricesModel(pricesEntity)).thenReturn(pricesModel);
 

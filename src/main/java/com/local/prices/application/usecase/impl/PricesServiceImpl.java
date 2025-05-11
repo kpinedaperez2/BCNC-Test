@@ -6,7 +6,7 @@ import com.local.prices.application.mapper.PricesMapper;
 import com.local.prices.application.model.PricesModel;
 import com.local.prices.application.usecase.PricesService;
 import com.local.prices.domain.PricesEntity;
-import com.local.prices.infrastructure.prices.jpa.PricesJpaRepository;
+import com.local.prices.infrastructure.db.jpa.PricesJpaRepository;
 import com.local.prices.router.dto.RateRequest;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -53,7 +53,7 @@ public class PricesServiceImpl implements PricesService {
                             "No price table data found for product ID " + rateRequest.getProductId() +
                                     " and brand ID " + rateRequest.getBrandId()
                     ));
-
+            log.info("Product info has been found for ID {} and brand ID {}: {}", rateRequest.getProductId(), rateRequest.getBrandId(), prices);
             return getAndFilterPriceModel(rateRequest, prices)
                     .orElseThrow(() -> new EntityNotFoundException("No applicable price found for date " + rateRequest.getApplicationDate()));
 

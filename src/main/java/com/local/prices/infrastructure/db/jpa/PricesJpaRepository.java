@@ -1,4 +1,4 @@
-package com.local.prices.infrastructure.prices.jpa;
+package com.local.prices.infrastructure.db.jpa;
 
 import com.local.prices.domain.PricesEntity;
 import org.springframework.data.jpa.repository.EntityGraph;
