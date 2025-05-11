@@ -9,7 +9,6 @@ import com.local.prices.domain.BrandEntity;
 import com.local.prices.domain.PricesEntity;
 import com.local.prices.infrastructure.db.jpa.PricesJpaRepository;
 import com.local.prices.router.dto.RateRequest;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -203,22 +202,22 @@ public class PricesServiceTest {
 
     @Test
     void shouldNotReturnPriceWhenDateIsAfterEndDate() {
-        rateRequest.setApplicationDate(LocalDateTime.parse("2020-06-14T16:00:00"));
+        rateRequest.setApplicationDate(LocalDateTime.parse("2020-06-14T13:00:00"));
 
         when(pricesJpaRepository.findByProductIdAndBrand_Id(35455L, brandEntity.getId()))
                 .thenReturn(Optional.of(List.of(pricesEntityOutRange)));
 
-        assertThrows(EntityNotFoundException.class, () -> pricesService.apply(rateRequest));
+        assertThrows(PricesServiceException.class, () -> pricesService.apply(rateRequest));
     }
 
     @Test
-    void shouldThrowEntityNotFoundExceptionWhenNoPriceFound() {
+    void shouldThrowPricesCollectionNotFoundExceptionWhenNoPriceFound() {
         Optional<List<PricesEntity>> emptyOptional = Optional.empty();
         when(pricesJpaRepository
                 .findByProductIdAndBrand_Id(
                         anyLong(), anyLong()))
                 .thenReturn(emptyOptional);
-        assertThrows(EntityNotFoundException.class, () -> pricesService.apply(rateRequest));
+        assertThrows(PricesCollectionNotFoundException.class, () -> pricesService.apply(rateRequest));
     }
 
     @Test
@@ -364,13 +363,13 @@ public class PricesServiceTest {
     }
 
     @Test
-    void shouldServiceV2ThrowEntityNotFoundExceptionWhenNoPriceFound() {
+    void shouldServiceV2ThrowPricesCollectionNotFoundExceptionWhenNoPriceFound() {
         Optional<PricesEntity> emptyOptional = Optional.empty();
         when(pricesJpaRepository
                 .findTopByProductIdAndBrand_IdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
                         anyLong(), anyLong(), any(), any()))
                 .thenReturn(emptyOptional);
-        assertThrows(EntityNotFoundException.class, () -> pricesService.applyV2(rateRequest));
+        assertThrows(PricesCollectionNotFoundException.class, () -> pricesService.applyV2(rateRequest));
     }
 
     @Test

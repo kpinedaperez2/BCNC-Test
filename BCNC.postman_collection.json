@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "51b443cd-fac3-4bcb-b4f9-3a4d8400cc05",
+		"name": "BCNC TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43391650",
+		"_collection_link": "https://kevinpineda-9356974.postman.co/workspace/Kevin-Pineda's-Workspace~d7b3ce28-66b8-431b-8e47-b502a80817d2/collection/43391650-51b443cd-fac3-4bcb-b4f9-3a4d8400cc05?action=share&source=collection_link&creator=43391650"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "ApplyRateTest1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-14T10:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-14T16:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-14T21:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest4",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-15T10:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest5",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-16T21:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "ApplyRateTest1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-14T10:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate/v2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-14T16:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate/v2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-14T21:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate/v2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest4",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-15T10:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate/v2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplyRateTest5",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQyODcxMzE0LCJleHAiOjE3NDI5MDczMTR9.30Sz9ya_4ApoypNIdOYhjlbc5LUn83qwXlsIXBhlS8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 35455,\r\n  \"brandId\": 1,\r\n  \"applicationDate\": \"2020-06-16T21:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bcnc/applyRate/v2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bcnc",
+								"applyRate",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

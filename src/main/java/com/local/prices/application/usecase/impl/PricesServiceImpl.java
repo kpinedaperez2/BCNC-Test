@@ -49,16 +49,16 @@ public class PricesServiceImpl implements PricesService {
                     .findByProductIdAndBrand_Id(
                             rateRequest.getProductId(),
                             rateRequest.getBrandId()
-                    ).orElseThrow(() -> new EntityNotFoundException(
+                    ).orElseThrow(() -> new PricesCollectionNotFoundException(
                             "No price table data found for product ID " + rateRequest.getProductId() +
                                     " and brand ID " + rateRequest.getBrandId()
                     ));
             log.info("Product info has been found for ID {} and brand ID {}: {}", rateRequest.getProductId(), rateRequest.getBrandId(), prices);
             return getAndFilterPriceModel(rateRequest, prices)
-                    .orElseThrow(() -> new EntityNotFoundException("No applicable price found for date " + rateRequest.getApplicationDate()));
+                    .orElseThrow(() -> new PricesServiceException("No applicable price found for date " + rateRequest.getApplicationDate()));
 
         } catch (PricesCollectionNotFoundException e) {
-            log.error("Product not found with id: {}", rateRequest.getProductId(), e);
+            log.error("Product not found with id: {} and brand id {}", rateRequest.getProductId(),rateRequest.getBrandId(), e);
             throw e;
         } catch (DataAccessException e) {
             log.error("Database error with id: {}", rateRequest.getProductId(), e);
@@ -85,7 +85,7 @@ public class PricesServiceImpl implements PricesService {
                     pricesRequest.getBrandId(),
                     pricesRequest.getApplicationDate(),
                     pricesRequest.getApplicationDate()
-            ).map(pricesMapper::toPricesModel).orElseThrow(() -> new EntityNotFoundException("No price table data found for product ID "
+            ).map(pricesMapper::toPricesModel).orElseThrow(() -> new PricesCollectionNotFoundException("No price table data found for product ID "
                     + pricesRequest.getProductId() + " and brand ID " + pricesRequest.getBrandId()));
 
         } catch (PricesCollectionNotFoundException e) {
