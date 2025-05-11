@@ -97,6 +97,8 @@ Se incluyo una collection de postman para facilitar la importacion y ejecucion d
 <!-- CONTRIBUTING -->
 ## 4. Contribuciones
 
+**Se implemento una CI para el building y ejecucion de los test posterior a cada commit subido a la rama Develop**
+
 Si bien en el proyecto se tuvo una consigna, ofrece muchas posibilidades de implementacion que quedan en modo "potencial", implementacion de colas de mensajeria para la emision y recepcion de pedidos de aplicacion de tarifas, logging con herramientas externas como datadog, o, si se quisiera implementar otro tipo de bdd, tambiense puede levantar en una imagen docker
 
 Contribuciones y recomendaciones para ayudar a crecer son bienvenidas.
